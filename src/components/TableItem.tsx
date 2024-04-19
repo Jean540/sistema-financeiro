@@ -44,7 +44,8 @@ export const TableItem = ({ item }: { item: Item }) => {
       {categories[item.category].expense ? (
         <td className="py-[10px] text-red-500">R${item.value}</td>
       ) : (
-        <td className="py-[10px] text-green-500)}
+        <td className="py-[10px] text-green-500">R${item.value}</td>
+      )}
     </tr>
   );
 };

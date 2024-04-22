@@ -18,7 +18,16 @@ export const TableItem = ({ item }: { item: Item }) => {
   const [showDate, setShowDate] = useState(true);
 
   const [size, setSize] = useState<number>(window.innerWidth);
-  window.addEventListener("resize", () => setSize(window.innerWidth));
+
+  useEffect(() => {
+    const onResize = () => setSize(window.innerWidth);
+
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (size < 337) {
